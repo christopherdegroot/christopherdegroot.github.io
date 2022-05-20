@@ -1,5 +1,9 @@
 import { Collapse, Button, HStack, Box, Image, Badge, Text, Slider, SliderFilledTrack, SliderTrack } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
 
 export default function PokeCard(props) {
   const [show, setShow] = useState(false)
@@ -38,6 +42,21 @@ const parsedTypes = props.data.types.map((type)=>{
 })
 
 
+let spriteList = [];
+for(const sprite in props.data.sprites) {
+    spriteList.push(props.data.sprites[sprite])
+}
+
+const parsedSprites = spriteList.map((sprite)=>{
+  if (typeof sprite === 'string' && sprite != null) {
+    return (<Image key={sprite} src={sprite} />)
+  }
+})
+
+const spritesListFinal = [];
+const finalParsedSprites = parsedSprites.map((sprite)=>{
+  if (sprite) spritesListFinal.push(sprite)
+})
 
   return (
     <Box
@@ -49,10 +68,29 @@ const parsedTypes = props.data.types.map((type)=>{
     >
       <Box p="6">
         <HStack>
-      <Image
-        src={props.data.sprites.front_default}
-        alt={props.data.sprites.front_default}
-      />
+        <Carousel showStatus={false} showThumbs={false} width={200}>
+               {spritesListFinal.reverse()}
+
+                {/* {props.data.sprites.back_shiny  !== null && <div>
+                    <img src={props.data.sprites.back_shiny} />
+                </div> }
+
+                {props.data.sprites.back_shiny_female  !== null && <div>
+                    <img src={props.data.sprites.back_shiny_female} />
+                </div> }
+
+                {props.data.sprites.front_female  !== null && <div>
+                    <img src={props.data.sprites.front_female} />
+                </div> }
+
+                {props.data.sprites.front_shiny  !== null && <div>
+                    <img src={props.data.sprites.front_shiny} />
+                </div> }
+
+                {props.data.sprites.front_shiny_female  !== null && <div>
+                    <img src={props.data.sprites.front_shiny_female} />
+                </div> } */}
+            </Carousel>
       <Box>
         <Text mb="5px" fontSize={'2xl'}>
           {props.data.name.charAt(0).toUpperCase() + props.data.name.slice(1)}
