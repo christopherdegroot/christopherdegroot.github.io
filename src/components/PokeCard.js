@@ -7,6 +7,10 @@ const parsedAbilities = props.data.abilities.map((ability)=>{
   return <p>{ability.ability.name}</p>
 })
 
+const parsedStats = props.data.stats.map((stat)=>{
+  return <p>{stat.stat.name}, {stat.base_stat}</p>
+})
+
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
         <Image src={props.data.sprites.back_default} alt={props.data.sprites.back_default} />
@@ -36,6 +40,7 @@ const parsedAbilities = props.data.abilities.map((ability)=>{
             noOfLines={1}
             ></Box>
             {parsedAbilities}
+            {parsedStats}
           <Box>
             <Box as="span" color="gray.600" fontSize="sm">
             </Box>
