@@ -13,7 +13,7 @@ const parsedStats = props.data.stats.map((stat)=>{
 
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-        <Image src={props.data.sprites.back_default} alt={props.data.sprites.back_default} />
+        <Image src={props.data.sprites.front_default} alt={props.data.sprites.front_default} />
         <Box p="6">
             {props.data.name.charAt(0).toUpperCase() + props.data.name.slice(1)}
           <Box display="flex" alignItems="baseline">
