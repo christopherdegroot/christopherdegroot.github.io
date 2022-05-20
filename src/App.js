@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { VStack, Box, Image, Badge } from '@chakra-ui/react';
+import { Input, Button, VStack, Box, Image, Badge } from '@chakra-ui/react';
 import axios from 'axios';
 import PokeCard from './components/PokeCard';
 
@@ -27,6 +27,8 @@ function App() {
 
   return (
     <VStack pt='2em'>
+      <Input></Input>
+      <Button>Search</Button>
       <PokeCard data={data}></PokeCard>
     </VStack>
   );
