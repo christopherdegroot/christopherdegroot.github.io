@@ -5,9 +5,9 @@ export default function PokeCard(props) {
   const [show, setShow] = useState(false)
   const handleToggle = () => setShow(!show)
 
-const parsedAbilities = props.data.abilities.map((ability)=>{
-  return <p>{ability.ability.name}</p>
-})
+  const parsedAbilities = props.data.abilities.map(ability => {
+    return <Text key={ability.ability.name}>• {ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1)}</Text>;
+  });
 
 const parsedStats = props.data.stats.map(stat => {
   return (
