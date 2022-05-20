@@ -13,7 +13,12 @@ import axios from 'axios';
 
 function App() {
 
-useEffect(()=>{},[])
+useEffect(()=>{
+  axios.get(`https://pokeapi.co/api/v2/`)
+  .then((res)=>{
+    console.log(res.data)
+  })
+},[])
 
 
   return (
