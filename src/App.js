@@ -9,7 +9,7 @@ function App() {
 
   const getData = function(search) {
     setLoading(true);
-    axios.get(`https://pokeapi.co/api/v2/pokemon/pikachu`).then(res => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/zapdos`).then(res => {
       console.log(res.data);
       setData(res.data);
       setLoading(false);
