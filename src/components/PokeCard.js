@@ -2,7 +2,7 @@ import { Box, Image, Badge } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 export default function PokeCard(props) {
-  const [show, setShow] = React.useState(false)
+  const [show, setShow] = useState(false)
   const handleToggle = () => setShow(!show)
 
 const parsedAbilities = props.data.abilities.map((ability)=>{
@@ -29,9 +29,7 @@ const parsedTypes = props.data.types.map((type)=>{
         <Box p="6">
             {props.data.name.charAt(0).toUpperCase() + props.data.name.slice(1)}
           <Box display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
-              {props.data.types[0].type.name}
-            </Badge>
+          {parsedTypes}
             <Box
               color="gray.500"
               fontWeight="semibold"
