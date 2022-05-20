@@ -34,7 +34,7 @@ const parsedTypes = props.data.types.map((type)=>{
     if (type.type.name === typeColor)
     badgeColor = typeColors[type.type.name]
   }
- return <Badge key={type.type.name} mx="2px" borderRadius="full" px="2" bgColor={badgeColor}>{type.type.name}</Badge>
+ return <Badge key={type.type.name} mr="2px" borderRadius="full" px="2" bgColor={badgeColor}>{type.type.name}</Badge>
 })
 
   return (
@@ -52,25 +52,22 @@ const parsedTypes = props.data.types.map((type)=>{
         alt={props.data.sprites.front_default}
       />
       <Box>
-        <Text fontSize={'2xl'}>
+        <Text mb="5px" fontSize={'2xl'}>
           {props.data.name.charAt(0).toUpperCase() + props.data.name.slice(1)}
         </Text>
         <Box display="flex" alignItems="baseline">
-          
             {parsedTypes}
-          
-          
+        </Box>
           <Box
             color="gray.500"
             fontWeight="semibold"
             letterSpacing="wide"
             fontSize="xs"
             textTransform="uppercase"
-            ml="2"
+            pt="5px"
           >
             {props.data.height / 10} meters &bull; {props.data.weight / 10} kg
           </Box>
-        </Box>
         </Box>
         </HStack>
         <Text fontSize={'xl'} fontWeight={'semibold'}>Abilities</Text>
