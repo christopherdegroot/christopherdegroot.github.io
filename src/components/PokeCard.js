@@ -1,4 +1,4 @@
-import { Box, Image, Badge } from '@chakra-ui/react';
+import { Collapse, Button, HStack, Box, Image, Badge, Text, Slider, SliderFilledTrack, SliderTrack } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 export default function PokeCard(props) {
@@ -24,42 +24,59 @@ const parsedTypes = props.data.types.map((type)=>{
 })
 
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-        <Image src={props.data.sprites.front_default} alt={props.data.sprites.front_default} />
-        <Box p="6">
-            {props.data.name.charAt(0).toUpperCase() + props.data.name.slice(1)}
-          <Box display="flex" alignItems="baseline">
-          {parsedTypes}
-            <Box
-              color="gray.500"
-              fontWeight="semibold"
-              letterSpacing="wide"
-              fontSize="xs"
-              textTransform="uppercase"
-              ml="2"
-            >
-              {props.data.height/10} meters &bull; {props.data.weight/10} kg
-            </Box>
-          </Box>
-
+    <Box
+      key={props.data.id}
+      maxW="sm"
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+    >
+      <Box p="6">
+        <HStack>
+      <Image
+        src={props.data.sprites.front_default}
+        alt={props.data.sprites.front_default}
+      />
+      <Box>
+        <Text fontSize={'2xl'}>
+          {props.data.name.charAt(0).toUpperCase() + props.data.name.slice(1)}
+        </Text>
+        <Box display="flex" alignItems="baseline">
+          
+            {parsedTypes}
+          
+          
           <Box
-            mt="1"
+            color="gray.500"
             fontWeight="semibold"
-            as="h4"
-            lineHeight="tight"
-            noOfLines={1}
-            ></Box>
-            {parsedAbilities}
-            {parsedStats}
-          <Box>
-            <Box as="span" color="gray.600" fontSize="sm">
-            </Box>
-          </Box>
-
-          <Box display="flex" mt="2" alignItems="center">
-            <Box as="span" ml="2" color="gray.600" fontSize="sm"></Box>
+            letterSpacing="wide"
+            fontSize="xs"
+            textTransform="uppercase"
+            ml="2"
+          >
+            {props.data.height / 10} meters &bull; {props.data.weight / 10} kg
           </Box>
         </Box>
+        </Box>
+        </HStack>
+        <Text fontSize={'xl'} fontWeight={'semibold'}>Abilities</Text>
+         {parsedAbilities}
+         <Collapse in={show}>
+         <Text fontSize={'xl'} fontWeight={'semibold'}>Base stats</Text>
+         <Box px='0.5rem'>{parsedStats}</Box>
+      </Collapse>
+      <Button size='sm' onClick={handleToggle} mt='1rem'>
+      {show ? 'Hide' : 'Show'} Stats 
+      </Button>
+        
+        <Box>
+          <Box as="span" color="gray.600" fontSize="sm"></Box>
+        </Box>
+
+        <Box display="flex" mt="2" alignItems="center">
+          <Box as="span" ml="2" color="gray.600" fontSize="sm"></Box>
+        </Box>
       </Box>
+    </Box>
   )
 }
