@@ -1,7 +1,9 @@
 import { Box, Image, Badge } from '@chakra-ui/react';
+import React, { useState } from 'react';
 
 export default function PokeCard(props) {
-
+  const [show, setShow] = React.useState(false)
+  const handleToggle = () => setShow(!show)
 
 const parsedAbilities = props.data.abilities.map((ability)=>{
   return <p>{ability.ability.name}</p>
