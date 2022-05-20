@@ -12,9 +12,11 @@ function App() {
 
 
   const getData = function(search) {
+    setLoading(true);
     axios.get(`https://pokeapi.co/api/v2/pokemon/ditto`)
     .then((res)=>{
       console.log(res.data)
+      setLoading(false)
     })
   }
 
@@ -22,6 +24,8 @@ useEffect(()=>{
   getData()
 },[])
 
+if (loading) return <p>Loading...</p>
+if (!data) return <p>No data</p>
 
   return (
     <>
