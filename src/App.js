@@ -16,6 +16,7 @@ function App() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/ditto`)
     .then((res)=>{
       console.log(res.data)
+      setData(res.data)
       setLoading(false)
     })
   }
