@@ -12,9 +12,8 @@ import {
 
 function App() {
   return (
-    <ChakraProvider>
-  
-    </ChakraProvider>
+   <>
+   </>
   );
 }
 
