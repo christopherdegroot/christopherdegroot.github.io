@@ -24,7 +24,7 @@ function App() {
     })
   }
     else
-    axios.get(`https://pokeapi.co/api/v2/pokemon/zapdos`).then(res => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/bulbasaur`).then(res => {
       console.log(res.data);
       setData(res.data);
       setLoading(false);
