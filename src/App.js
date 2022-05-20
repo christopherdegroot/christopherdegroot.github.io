@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ChakraProvider,
   Box,
@@ -9,8 +9,13 @@ import {
   Grid,
   theme,
 } from '@chakra-ui/react';
+import axios from 'axios';
 
 function App() {
+
+useEffect(()=>{},[])
+
+
   return (
    <>
    </>
