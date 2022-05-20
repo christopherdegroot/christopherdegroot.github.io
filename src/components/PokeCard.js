@@ -2,6 +2,11 @@ import { Box, Image, Badge } from '@chakra-ui/react';
 
 export default function PokeCard(props) {
 
+
+const parsedAbilities = props.data.abilities.map((ability)=>{
+  return <p>{ability.ability.name}</p>
+})
+
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
         <Image src={props.data.sprites.back_default} alt={props.data.sprites.back_default} />
@@ -29,8 +34,8 @@ export default function PokeCard(props) {
             as="h4"
             lineHeight="tight"
             noOfLines={1}
-          ></Box>
-
+            ></Box>
+            {parsedAbilities}
           <Box>
             <Box as="span" color="gray.600" fontSize="sm">
             </Box>
