@@ -10,7 +10,6 @@ function App() {
     setLoading(true);
     axios.get(`https://pokeapi.co/api/v2/pokemon/ditto`).then(res => {
       console.log(res.data);
-  console.log('logging url for image sprite', res.data.sprites.back_default)
       setData(res.data);
       setLoading(false);
     });
@@ -30,6 +29,7 @@ function App() {
       <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
         <Image src={data.sprites.back_default} alt={data.sprites.back_default} />
         <Box p="6">
+            {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
           <Box display="flex" alignItems="baseline">
             <Badge borderRadius="full" px="2" colorScheme="teal">
               New
