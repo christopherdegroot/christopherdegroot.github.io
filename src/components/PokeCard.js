@@ -37,6 +37,8 @@ const parsedTypes = props.data.types.map((type)=>{
  return <Badge key={type.type.name} mr="2px" borderRadius="full" px="2" bgColor={badgeColor}>{type.type.name}</Badge>
 })
 
+
+
   return (
     <Box
       w={'md'}

@@ -11,6 +11,8 @@ function App() {
 
   const getData = function(search) {
     setLoading(true);
+    const randomPokemonId = Math.floor((Math.random() * 898) + 1);
+    
     if (search) {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${search}`).then(res => {
       console.log(res.data);
@@ -24,7 +26,7 @@ function App() {
     })
   }
     else
-    axios.get(`https://pokeapi.co/api/v2/pokemon/bulbasaur`).then(res => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`).then(res => {
       console.log(res.data);
       setData(res.data);
       setLoading(false);
