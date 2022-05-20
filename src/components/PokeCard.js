@@ -68,7 +68,7 @@ const finalParsedSprites = parsedSprites.map((sprite)=>{
     >
       <Box p="6">
         <HStack>
-        <Carousel showStatus={false} showThumbs={false} width={200}>
+        <Carousel infiniteLoop={true} showStatus={false} showThumbs={false} width={200}>
                {spritesListFinal.reverse()}
 
                 {/* {props.data.sprites.back_shiny  !== null && <div>
