@@ -57,7 +57,7 @@ function App() {
     <VStack pt="2em">
       <HStack w="md">
         <Input
-          onChange={e => setSearchValue(e.target.value)}
+          onChange={e => setSearchValue(e.target.value.toLowerCase())}
           placeholder="Search Pokedex"
         ></Input>
         <Button
