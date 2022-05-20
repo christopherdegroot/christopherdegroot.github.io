@@ -6,6 +6,7 @@ import PokeCard from './components/PokeCard';
 function App() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
+  const [searchValue, setSearchValue] = useState('');
 
   const getData = function(search) {
     setLoading(true);
