@@ -39,8 +39,8 @@ const parsedTypes = props.data.types.map((type)=>{
 
   return (
     <Box
+      w={'md'}
       key={props.data.id}
-      maxW="sm"
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"

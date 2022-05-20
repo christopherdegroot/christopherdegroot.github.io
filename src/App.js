@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Image, Badge } from '@chakra-ui/react';
+import { VStack, Box, Image, Badge } from '@chakra-ui/react';
 import axios from 'axios';
 import PokeCard from './components/PokeCard';
 
@@ -25,9 +25,9 @@ function App() {
   if (!data) return <p>No data</p>;
 
   return (
-    <>
+    <VStack pt='2em'>
       <PokeCard data={data}></PokeCard>
-    </>
+    </VStack>
   );
 }
 
