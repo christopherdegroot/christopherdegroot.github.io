@@ -32,7 +32,7 @@ function App() {
             {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
           <Box display="flex" alignItems="baseline">
             <Badge borderRadius="full" px="2" colorScheme="teal">
-              New
+              {data.types[0].type.name}
             </Badge>
             <Box
               color="gray.500"
@@ -42,7 +42,7 @@ function App() {
               textTransform="uppercase"
               ml="2"
             >
-              beds &bull; baths
+              {data.height/10} meters &bull; {data.weight/10} kg
             </Box>
           </Box>
 
