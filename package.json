@@ -2,7 +2,7 @@
   "name": "pokedex",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://christopherdegroot.github.io/react-gh-pages",
+  "homepage": "https://christopherdegroot.github.io/",
   "dependencies": {
     "@chakra-ui/react": "^2.0.2",
     "@emotion/react": "^11.9.0",
