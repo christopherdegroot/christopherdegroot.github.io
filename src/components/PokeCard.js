@@ -15,9 +15,11 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 
 export default function PokeCard(props) {
+  // state management for button
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
 
+  // parses abilities from props to be used to create a list of abilities in the pokemon's display card
   const parsedAbilities = props.data.abilities.map(ability => {
     return (
       <Text key={ability.ability.name}>
@@ -28,6 +30,7 @@ export default function PokeCard(props) {
     );
   });
 
+  // parses stats from props to be used to create a list of stats in the pokemon's display card
   const parsedStats = props.data.stats.map(stat => {
     return (
       <Box key={stat.stat.name}>
@@ -46,6 +49,7 @@ export default function PokeCard(props) {
     );
   });
 
+  // parses types from props to be used to create a list of types in the pokemon's display card as a badge -- will render correct color used by actual Pokemon Pokedex as badge color
   const parsedTypes = props.data.types.map(type => {
     let typeColors = {
       normal: '#a7a778',
@@ -67,6 +71,8 @@ export default function PokeCard(props) {
       steel: '#b8b8d0',
       fairy: '#f0b6bc',
     };
+
+    // assigns badge color variable to matching hex code from typeColors object above
     let badgeColor = '';
     for (const typeColor in typeColors) {
       if (type.type.name === typeColor) badgeColor = typeColors[type.type.name];
@@ -84,17 +90,20 @@ export default function PokeCard(props) {
     );
   });
 
+  // create list of sprites from props
   let spriteList = [];
   for (const sprite in props.data.sprites) {
     spriteList.push(props.data.sprites[sprite]);
   }
 
+  // parses sprite list and returns a list of Image components if the sprite url exists 
   const parsedSprites = spriteList.map(sprite => {
     if (typeof sprite === 'string' && sprite != null)
       return <Image key={sprite} src={sprite} />;
     else return null;
   });
 
+  // removes null entries and creates final sprite list to be used in carousel
   const spritesListFinal = [];
   parsedSprites.map(sprite => {
     if (sprite) spritesListFinal.push(sprite);
