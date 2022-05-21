@@ -69,27 +69,8 @@ parsedSprites.map((sprite)=>{
       <Box p="6">
         <HStack>
         <Carousel infiniteLoop={true} showStatus={false} showThumbs={false} width={200}>
+               <Image src={props.data.sprites.front_default}></Image>
                {spritesListFinal.reverse()}
-
-                {/* {props.data.sprites.back_shiny  !== null && <div>
-                    <img src={props.data.sprites.back_shiny} />
-                </div> }
-
-                {props.data.sprites.back_shiny_female  !== null && <div>
-                    <img src={props.data.sprites.back_shiny_female} />
-                </div> }
-
-                {props.data.sprites.front_female  !== null && <div>
-                    <img src={props.data.sprites.front_female} />
-                </div> }
-
-                {props.data.sprites.front_shiny  !== null && <div>
-                    <img src={props.data.sprites.front_shiny} />
-                </div> }
-
-                {props.data.sprites.front_shiny_female  !== null && <div>
-                    <img src={props.data.sprites.front_shiny_female} />
-                </div> } */}
             </Carousel>
       <Box>
         <Text mb="5px" fontSize={'2xl'}>
