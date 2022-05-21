@@ -22,7 +22,6 @@ function App() {
       axios
         .get(`https://pokeapi.co/api/v2/pokemon/${search}`)
         .then(res => {
-          console.log(res.data);
           setData(res.data);
           setLoading(false);
         })
@@ -35,7 +34,6 @@ function App() {
       axios
         .get(`https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`)
         .then(res => {
-          console.log(res.data);
           setData(res.data);
           setLoading(false);
         });
