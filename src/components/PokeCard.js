@@ -1,6 +1,5 @@
 import { Collapse, Button, HStack, Box, Image, Badge, Text, Slider, SliderFilledTrack, SliderTrack } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
@@ -47,15 +46,16 @@ for(const sprite in props.data.sprites) {
     spriteList.push(props.data.sprites[sprite])
 }
 
-const parsedSprites = spriteList.map((sprite)=>{
-  if (typeof sprite === 'string' && sprite != null) {
+const parsedSprites = spriteList.map(sprite=>{
+  if (typeof sprite === 'string' && sprite != null) 
     return (<Image key={sprite} src={sprite} />)
-  }
+  else return null
 })
 
 const spritesListFinal = [];
-const finalParsedSprites = parsedSprites.map((sprite)=>{
+parsedSprites.map((sprite)=>{
   if (sprite) spritesListFinal.push(sprite)
+  return spritesListFinal
 })
 
   return (

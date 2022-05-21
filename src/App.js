@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Text,
   HStack,
   Input,
   Button,
   VStack,
-  Box,
-  Image,
-  Badge,
 } from '@chakra-ui/react';
 import axios from 'axios';
 import PokeCard from './components/PokeCard';
